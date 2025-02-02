@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Simple Game</title>
+    <style>
+        body {
+            background-color: #f0f0f0;
+            font-family: Arial, sans-serif;
+        }
+
+        .game-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #3f3f3f;
+            color: white;
+            font-size: 24px;
+        }
+
+        .game-text {
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="game-container">
+        <h1 class="game-text">You have 3 lives!</h1>
+        <button id="startButton" onclick="startGame()">Start Game</button>
+        <button id="restartButton" onclick="restartGame()">Restart</button>
+    </div>
+    
+    <script>
+        let score = 0;
+        function startGame() {
+            document.getElementById("startButton").style.display = "none";
+            document.getElementById("restartButton").style.display = "block";
+            document.getElementById("score").innerHTML = `Score: ${score}`;
+        }
+        
+        function restartGame() {
+            score = 0;
+            document.getElementById("startButton").style.display = "block";
+            document.getElementById("restartButton").style.display = "none";
+            document.getElementById("score").innerHTML = `Score: ${score}`;
+        }
+        
+        function updateScore(value) {
+            score += value;
+            document.getElementById("score").innerHTML = `Score: ${score}`;
+        }
+    </script>
+</body>
+</html>
